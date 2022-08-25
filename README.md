@@ -17,22 +17,25 @@ is necessary for the use in sequence.
 
 ## Installation
 
-Install the plugin using your favorite package manager
+Install the plugin using your favorite package manager:
 
-### For dein.vim
+[vim-plug](https://github.com/junegunn/vim-plug)
 
-Install the plugin using your favorite package manager.
-This is a sample configuration in TOML format
-for [Dein](https://github.com/Shougo/dein.vim) users:
+```vim
+Plug 'aileot/vim-among_HML'
+```
+
+[packer.nvim](https://github.com/wbthomason/packer.nvim)
+
+```lua
+use "aileot/vim-among_HML"
+```
+
+[dein.vim](https://github.com/Shougo/dein.vim) in toml
 
 ```toml
 [[plugin]]
 repo = 'aileot/vim-among_HML'
-lazy = 1
-on_func = ['among_HML#']
-hook_add = '''
-" Write your configuration referring to the examples below.
-'''
 ```
 
 ## Examples
