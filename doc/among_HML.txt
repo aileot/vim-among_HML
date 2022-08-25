@@ -2,7 +2,7 @@
 *among-HML* *amongHML*
 
 Version: 1.1.0
-Author: kaile256 <kaile256acc at gmail.com>
+Author: aileot
 License: MIT license
 
 ==============================================================================
@@ -19,7 +19,7 @@ INTRODUCTION						     *among_HML-intro*
 among_HML provides a function to extend H/M/L. Move in ratio!
 
 Latest version:
-https://github.com/kaile256/vim-among_HML
+https://github.com/aileot/vim-among_HML
 
 ==============================================================================
 USAGE							     *among_HML-usage*

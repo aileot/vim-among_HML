@@ -27,7 +27,7 @@ for [Dein](https://github.com/Shougo/dein.vim) users:
 
 ```toml
 [[plugin]]
-repo = 'kaile256/vim-among_HML'
+repo = 'aileot/vim-among_HML'
 lazy = 1
 on_func = ['among_HML#']
 hook_add = '''
@@ -84,5 +84,5 @@ ounmap M
 Now, you can spare your keymappings.
 
 For more examples and informations, please read documentation
-([online](https://github.com/kaile256/vim-among_HML/blob/master/doc/among_HML.txt),
+([online](https://github.com/aileot/vim-among_HML/blob/master/doc/among_HML.txt),
 or `:h among_HML` in your Vim/Neovim)
