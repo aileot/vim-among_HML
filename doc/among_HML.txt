@@ -6,7 +6,7 @@ Author: aileot
 License: MIT license
 
 ==============================================================================
-CONTENTS						*among_HML-contents*
+CONTENTS						   *among_HML-contents*
 
 Introduction				|among_HML-intro|
 Usage					|among_HML-usage|
@@ -14,7 +14,7 @@ Usage					|among_HML-usage|
 Examples				|among_HML-examples|
 
 ==============================================================================
-INTRODUCTION						     *among_HML-intro*
+INTRODUCTION						      *among_HML-intro*
 
 among_HML provides a function to extend H/M/L. Move in ratio!
 
@@ -22,7 +22,7 @@ Latest version:
 https://github.com/aileot/vim-among_HML
 
 ==============================================================================
-USAGE							     *among_HML-usage*
+USAGE							      *among_HML-usage*
 
 ------------------------------------------------------------------------------
 FUNCTION						  *among_HML-function*
@@ -120,7 +120,7 @@ For convenience, here are some ratio with percentage in the table below:
 	| 1     | 100        |
 
 ==============================================================================
-EXAMPLES						 *among_HML-examples*
+EXAMPLES						   *among_HML-examples*
 
 Note:
 You must install kana/vim-submode(https://github.com/kana/vim-submode) to use
