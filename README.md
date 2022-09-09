@@ -38,11 +38,21 @@ use "aileot/vim-among_HML"
 repo = 'aileot/vim-among_HML'
 ```
 
+## Notice
+
+If you prefer fraction to decimal,
+either numberator or denominator must be a decimal.
+
+In Vim/Neovim, a ratio of Integers is an Integer:
+
+- Either `1/4` or `3/4` results in `0`.
+- `1/4.0` results in `0.25`, `3.0/4` results in `0.75`.
+
 ## Examples
 
 ```vim
-" assign a percentage as you want, like below
-:call among_HML#jump(12.5) " for 1/8 height of lines
+" Assign a ratio (0.0 ~ 1.0) to jump within window.
+:call among_HML#jump(1/8.0) " Jump to 1/8 height in window.
 ```
 
 vim-among_HML defines no default keymappings;
@@ -52,9 +62,9 @@ in your vimrc or init.vim.
 ```vim
 set scrolloff=0 " recommended (default)
 
-" Jump in 1/4 or 3/4 height of lines (i.e., 25% or 75% height);
-noremap <silent> K <Cmd>call among_HML#jump(25)<cr>
-noremap <silent> J <Cmd>call among_HML#jump(75)<cr>
+" Jump into the line at 1/4 or 3/4 height of window (i.e., 25% or 75% height);
+noremap <silent> K <Cmd>call among_HML#jump(0.25)<CR>
+noremap <silent> J <Cmd>call among_HML#jump(0.75)<CR>
 
 " Optional mappings with mnemonics:
 " Get the Keyword
@@ -65,27 +75,6 @@ nnoremap <space>J J
 xnoremap <space>J J
 ```
 
-### Fork Motion
-
-With [kana/vim-submode](https://github.com/kana/vim-submode) installed,
-you can jump in fork.
-
-```vim
-let g:submode_keep_leaving_key = 1 " recommended
-
-noremap <silent> M <Cmd>call among_HML#fork#init_jump(
-      \ 'M', '50', {
-      \ 'H': '0',
-      \ 'K': '25',
-      \ 'J': '75',
-      \ 'L': '100',
-      \ })<CR>
-" Fork mappings are usually annoying in Operator-pending mode.
-ounmap M
-```
-
-Now, you can spare your keymappings.
-
-For more examples and informations, please read documentation
-([online](https://github.com/aileot/vim-among_HML/blob/master/doc/among_HML.txt),
+For more examples and information, please read
+[documentation](https://github.com/aileot/vim-among_HML/blob/master/doc/among_HML.txt),
 or `:h among_HML` in your Vim/Neovim)
