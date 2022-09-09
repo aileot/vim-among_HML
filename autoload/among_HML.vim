@@ -14,14 +14,22 @@ let s:save_cpo = &cpo
 set cpo&vim
 "}}}
 
-function! among_HML#jump(percentage)
+function! among_HML#jump(ratio)
   let save_so = &scrolloff
   set scrolloff=0
+  " Backward compatibility
+  let ratio = a:ratio
+  if a:ratio > 1.0
+    let ratio = a:ratio / 100.0
+    echohl ErrorMsg
+    echom '[among_HML] Percentage is deprecated. Please use a ratio (0.0 ~ 1.0)'
+    echohl None
+  endif
 
   norm! L
-  let dest = round(winline() * a:percentage / 100.0)
+  let dest = round(winline() * ratio)
 
-  if a:percentage <= 50
+  if ratio <= 0.50
     norm! M
   endif
 

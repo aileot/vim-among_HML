@@ -29,7 +29,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 "}}}
 
-function! s:define_submode(start_key, percentage, combinations)
+function! s:define_submode(start_key, ratio, combinations)
   if has('nvim-0.3.0') || has('patch-8.2.1978')
     let call = '<Cmd>call '
     let modes = 'nxo'
@@ -38,7 +38,7 @@ function! s:define_submode(start_key, percentage, combinations)
     let modes = 'no'
   endif
 
-  let rhs = call .'among_HML#jump('. a:percentage .')<cr>'
+  let rhs = call .'among_HML#jump('. string(a:ratio) .')<cr>'
 
   try
     let mode_name = 'HML/fork_'. a:start_key
@@ -48,7 +48,7 @@ function! s:define_submode(start_key, percentage, combinations)
         call submode#enter_with(mode_name, l:mode, 's', a:start_key, rhs)
         for lhs in keys(a:combinations)
           " Note: option-x makes user leave from the submode
-          let sub_rhs = call .'among_HML#jump('. a:combinations[lhs] .')<CR>'
+          let sub_rhs = call .'among_HML#jump('. string(a:combinations[lhs]) .')<CR>'
           call submode#map(mode_name, l:mode, 'sx', lhs, sub_rhs)
         endfor
       endif
