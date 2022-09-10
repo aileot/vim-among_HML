@@ -27,7 +27,7 @@ function! among_HML#jump(ratio)
   endif
 
   norm! L
-  let dest = round(winline() * ratio)
+  let dest = winline() * ratio
 
   if ratio <= 0.50
     norm! M
