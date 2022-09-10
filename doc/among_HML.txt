@@ -28,25 +28,22 @@ USAGE							      *among_HML-usage*
 FUNCTION						  *among_HML-function*
 
 among_HML#jump({expr})				  *among_HML-among_HML#jump()*
-		Move to the line equal to {expr} percentage of lines. {expr}
-		must be a |Float| or a Number. The cursor will keep within the
-		window even when {expr} is a negative or more than 100.
-		For example,
+		Jump to the line in the ratio of current window calculated in
+		{expr}. {expr} must be a |Float| between 0.0 ~ 1.0.
 >
-		:call among_HML#jump(12.5) " for 1/8 height of lines
+		:call among_HML#jump(1.0/8) " Jump to 1/8 of window.
 <
 		vim-among_HML defines no default keymappings, so you should
-		define some keymappings, like below, in your vimrc or init.vim.
+		define some keymappings like below in your vimrc or init.vim.
 >
-		" if you prefer to jump in 1/4 or 3/4 height of lines
-		" (i.e., 25% or 75% height);
-		nnoremap <silent> K :<c-u>call among_HML#jump(25)<cr>
-		nnoremap <silent> J :<c-u>call among_HML#jump(75)<cr>
+		" If you prefer to jump in 1/4 or 3/4 of window.
+		nnoremap <silent> K :<C-u>call among_HML#jump(0.25)<CR>
+		nnoremap <silent> J :<C-u>call among_HML#jump(0.75)<CR>
 
-		onoremap <silent> K :call among_HML#jump(25)<cr>
-		onoremap <silent> J :call among_HML#jump(75)<cr>
+		onoremap <silent> K :call among_HML#jump(0.25)<CR>
+		onoremap <silent> J :call among_HML#jump(0.75)<CR>
 
-		" optional:
+		" (Optional)
 		" Mnemonic: Get the Keyword
 		nnoremap gK K
 		" Mnemonic: <space>-leaving Join
@@ -55,18 +52,18 @@ among_HML#jump({expr})				  *among_HML-among_HML#jump()*
 		When either `has('nvim-0.3.0')` or `has('patch-8.2.1978')` returns
 		`1`, you can define keymappings with `<Cmd>` as below:
 >
-		noremap <silent> K <Cmd>call among_HML#jump(25)<cr>
-		noremap <silent> J <Cmd>call among_HML#jump(75)<cr>
+		noremap <silent> K <Cmd>call among_HML#jump(0.25)<CR>
+		noremap <silent> J <Cmd>call among_HML#jump(0.75)<CR>
 		noremap gK K
 		noremap <space>J J
 >
 among_HML#get_half#to({expr})		   *among_HML-among_HML#get_half#to()*
 		Jump to the middle line between current cursor line and
 		specified end of line. The rule of argument should follow
-		|among_HML#percent()|. For example,
+		|among_HML#jump()|. For example,
 >
-		nnoremap <silent> H  :<c-u>call among_HML#get_half#to(0)<cr>
-		nnoremap <silent> L  :<c-u>call among_HML#get_half#to(100)<cr>
+		nnoremap <silent> H  :<C-u>call among_HML#get_half#to(0.0)<CR>
+		nnoremap <silent> L  :<C-u>call among_HML#get_half#to(1.0)<CR>
 <
 among_HML#fork#init()                                 *among_HML#fork#init()*
 		Deprecated. Use |among_HML#fork#init_jump()| instead.
@@ -82,43 +79,22 @@ among_HML#fork#init_jump({lhs}, {expr}, {dict})
 		let g:submode_keep_leaving_key = 1 " recommended
 
 		noremap <silent> M <Cmd>call among_HML#fork#init_jump(
-				\ 'M', '50', {
-				\ 'K': '25',
-				\ 'J': '75',
+				\ 'M', 0.50, {
+				\ 'K': 0.25,
+				\ 'J': 0.75,
 				\ })<CR>
 <
-		{expr} should be a quoted |Float|, which is regarded as a first
-		percentage to jump when entering the submode. If you prefer
-		not to jump until the second input, set an empty string to the
-		second argument.
+		{expr} should be a |Float|, which is regarded as the first ratio
+		to jump when entering the submode. If you prefer not to jump
+		until the second input, set an empty string to the second
+		argument.
 >
 		noremap <silent> M <Cmd>call among_HML#fork#init_jump(
 			\ 'M', '', {
-			\ 'K': '25',
-			\ 'J': '75',
+			\ 'K': 0.25,
+			\ 'J': 0.75,
 			\ })<CR>
 <
-
-For convenience, here are some ratio with percentage in the table below:
-
-	| ratio | percentage |
-	| ===== | ========== |
-	| 0     | 0          |
-	| 1/8   | 12.5       |
-	| 1/6   | 16.666667  |
-	| 1/4   | 25         |
-	| 1/3   | 33.333333  |
-	| 3/8   | 37.5       |
-	| ----- | ---------- |
-	| 1/2   | 50         |
-	| ----- | ---------- |
-	| 5/8   | 62.5       |
-	| 2/3   | 66.666667  |
-	| 3/4   | 75         |
-	| 5/6   | 83.333333  |
-	| 7/8   | 87.5       |
-	| 1     | 100        |
-
 ==============================================================================
 EXAMPLES						   *among_HML-examples*
 
@@ -129,86 +105,56 @@ You must install kana/vim-submode(https://github.com/kana/vim-submode) to use
 9 patterns of lines:
 >
 	noremap <silent> H <Cmd>call among_HML#fork#init_jump(
-		\ 'H', '0', {
-		\ 'J': '12.5',
+		\ 'H', 0.0, {
+		\ 'J': 0.125,
 		\ })<CR>
 
 	noremap <silent> K <Cmd>call among_HML#fork#init_jump(
-		\ 'K', 25, {
-		\ 'K': '12.5',
-		\ 'J': '37.5',
+		\ 'K', 0.25, {
+		\ 'K': 0.125,
+		\ 'J': 0.375,
 		\ })<CR>
 
 	noremap <silent> M <Cmd>call among_HML#fork#init_jump(
-		\ 'M', 50, {
-		\ 'K': '37.5',
-		\ 'J': '67.5',
+		\ 'M', 0.50, {
+		\ 'K': 0.375,
+		\ 'J': 0.675,
 		\ })<CR>
 
 	noremap <silent> J <Cmd>call among_HML#fork#init_jump(
-		\ 'J', 75, {
-		\ 'K': '62.5',
-		\ 'J': '87.5',
+		\ 'J', 0.75, {
+		\ 'K': 0.625,
+		\ 'J': 0.875,
 		\ })<CR>
 
 	noremap <silent> L <Cmd>call among_HML#fork#init_jump(
-		\ 'L', '100', {
-		\ 'K': '87.5',
+		\ 'L', 1.0, {
+		\ 'K': 0.875,
 		\ })<CR>
 <
 or for less mapped keys, only on H and L for instance,
 >
 	noremap <silent> H <Cmd>call among_HML#fork#init_jump(
-		\ 'H', '25', {
-		\ 'H': '0',
-		\ 'K': '12.5',
-		\ 'M': '50',
-		\ 'J': '37.5',
+		\ 'H', 0.25, {
+		\ 'H': 0.0,
+		\ 'K': 0.125,
+		\ 'M': 0.50,
+		\ 'J': 0.375,
 		\ })<CR>
 
 	noremap <silent> L <Cmd>call among_HML#fork#init_jump(
-		\ 'L', '75', {
-		\ 'K': '62.5',
-		\ 'J': '87.5',
-		\ 'M': '50',
-		\ 'L': '100',
-		\ })<CR>
->
-13 patterns of lines:
->
-	noremap <silent> H <Cmd>call among_HML#fork#init_jump(
-		\ 'H', '0', {
-		\ 'J': '8.333333',
+		\ 'L', 0.75, {
+		\ 'K': 0.625,
+		\ 'J': 0.875,
+		\ 'M': 0.50,
+		\ 'L': 1.0,
 		\ })<CR>
 
-	noremap <silent> K <Cmd>call among_HML#fork#init_jump(
-		\ 'K', 25, {
-		\ 'K': '16.666667',
-		\ 'J': '33.333333',
-		\ })<CR>
-
-	noremap <silent> M <Cmd>call among_HML#fork#init_jump(
-		\ 'M', 50, {
-		\ 'K': '41.666667',
-		\ 'J': '58.333333',
-		\ })<CR>
-
-	noremap <silent> J <Cmd>call among_HML#fork#init_jump(
-		\ 'J', 75, {
-		\ 'K': '66.666667',
-		\ 'J': '83.333333',
-		\ })<CR>
-
-	noremap <silent> L <Cmd>call among_HML#fork#init_jump( a
-		\ 'L', '100', {
-		\ 'K': '91.666667',
-		\ })<CR>
-<
 Note:
 <Cmd> is only available on neovim v0.3.0 or more, or vim v8.2.1978 or more,
 use
 >
-	nnoremap (snip) :call among_HML#fork#init_jump(snip)<cr>
+	nnoremap (snip) :call among_HML#fork#init_jump(snip)<CR>
 <
 instead. All the functions shall be useless in `xmap` in this case.
 
