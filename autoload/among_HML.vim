@@ -26,14 +26,11 @@ function! among_HML#jump(ratio)
     echohl None
   endif
   normal! L
-  let dest = round(winline() * ratio)
-  if ratio <= 0.50
-    normal! M
-  endif
-  while winline() > dest
-    normal! gk
-    if winline() == 1 | break | endif
-  endwhile
+  let win_bottom = winline()
+  " Note: round() is necessary for rational motion in fewer lines.
+  let dest = round(win_bottom * ratio)
+  let count = float2nr(win_bottom - dest)
+  execute 'normal!' count .'gk'
   let &scrolloff = save_so
 endfunction
 
