@@ -26,7 +26,7 @@ function! among_HML#jump(ratio)
     echohl None
   endif
   normal! L
-  let dest = winline() * ratio
+  let dest = round(winline() * ratio)
   if ratio <= 0.50
     normal! M
   endif
