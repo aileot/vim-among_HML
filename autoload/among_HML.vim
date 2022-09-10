@@ -34,6 +34,37 @@ function! among_HML#jump(ratio)
   let &scrolloff = save_so
 endfunction
 
+function! among_HML#get_ratio()
+  let save_so = &scrolloff
+  set scrolloff=0
+  " Note: Integer can be cast to String in VimScript.
+  let curr_line = str2float(winline())
+  let win_bottom = winheight(0)
+  let ratio = curr_line / win_bottom
+  let &scrolloff = save_so
+  return ratio
+endfunction
+
+function! among_HML#scroll(ratio)
+  let save_so = &scrolloff
+  set scrolloff=0
+  let win_end = winheight(0)
+  " Note: Destination should be an Integer.
+  let dest = round(win_end * a:ratio)
+  if a:ratio < 0.50
+    normal! zt
+  else
+    normal! zz
+  endif
+  let cursor = winline()
+  while cursor < dest
+    execute "normal! \<C-y>"
+    if cursor == winline() | break | endif
+    let cursor = winline()
+  endwhile
+  let &scrolloff = save_so
+endfunction
+
 " restore cpoptions {{{1
 let &cpo = s:save_cpo
 unlet s:save_cpo

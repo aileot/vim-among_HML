@@ -57,6 +57,14 @@ among_HML#jump({expr})				  *among_HML-among_HML#jump()*
 		noremap gK K
 		noremap <space>J J
 >
+among_HML#get_ratio()			     *among_HML-among_HML#get_ratio()*
+		Return the ratio of cursor line height to window bottom as a
+		|Float|.
+
+among_HML#scroll({expr})			*among_HML-among_HML#scroll()*
+		Scroll window to the ratio. {expr} must evaluate to a |Float|.
+		Assign `0.0` to scroll as if |zt|, `0.5` as |zz|, or `1.0` as |zb|.
+
 among_HML#get_half#to({expr})		   *among_HML-among_HML#get_half#to()*
 		Jump to the middle line between current cursor line and
 		specified end of line. The rule of argument should follow
