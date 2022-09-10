@@ -22,22 +22,18 @@ function! among_HML#jump(ratio)
     " Backward compatibility
     let ratio = a:ratio / 100.0
     echohl ErrorMsg
-    echom '[among_HML] Percentage is deprecated. Please use a ratio (0.0 ~ 1.0)'
+    echomsg '[among_HML] Percentage is deprecated. Please use a ratio (0.0 ~ 1.0)'
     echohl None
   endif
-
-  norm! L
-  let dest = round(winline() * ratio)
-
+  normal! L
+  let dest = winline() * ratio
   if ratio <= 0.50
-    norm! M
+    normal! M
   endif
-
   while winline() > dest
-    norm! gk
+    normal! gk
     if winline() == 1 | break | endif
   endwhile
-
   let &scrolloff = save_so
 endfunction
 
