@@ -103,6 +103,15 @@ among_HML#fork#init_jump({lhs}, {expr}, {dict})
 			\ 'J': 0.75,
 			\ })<CR>
 <
+LUA FUNCTION					       *among_HML-lua_function*
+
+jump({expr})                                                 *among_HML.jump()*
+		Same as |among_HML#jump()|.
+get_ratio()                                             *among_HML.get_ratio()*
+		Same as |among_HML#get_ratio()|.
+scroll({expr})                                             *among_HML.scroll()*
+		Same as |among_HML#scroll()|.
+
 ==============================================================================
 EXAMPLES						   *among_HML-examples*
 
