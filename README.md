@@ -59,8 +59,8 @@ In Vim/Neovim, a ratio of Integers is an Integer:
 or, in Lua
 
 ```lua
-lua require("among_HML").jump(1/8)
-lua require("among_HML").scroll(0.25)
+require("among_HML").jump(1/8)
+require("among_HML").scroll(0.25)
 ```
 
 vim-among_HML defines no default keymappings;
