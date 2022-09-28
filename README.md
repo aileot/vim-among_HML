@@ -56,6 +56,13 @@ In Vim/Neovim, a ratio of Integers is an Integer:
 :call among_HML#scroll(0.25) " Drag cursor line to 1/4 height in window.
 ```
 
+or, in Lua
+
+```lua
+lua require("among_HML").jump(1/8)
+lua require("among_HML").scroll(0.25)
+```
+
 vim-among_HML defines no default keymappings;
 so you should define some keymappings, like the examples below,
 in your vimrc or init.vim.
