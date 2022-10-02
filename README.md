@@ -46,7 +46,7 @@ In Vim/Neovim, a ratio of Integers is an Integer:
 
 ```vim
 " Assign a ratio (0.0 ~ 1.0) to jump within window.
-:call among_HML#jump(1/8.0) " Jump to 1/8 height in window.
+:call among_HML#jump(1/8.0)  " Jump to 1/8 height in window.
 :call among_HML#scroll(0.25) " Drag cursor line to 1/4 height in window.
 ```
 
