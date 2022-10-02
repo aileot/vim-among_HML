@@ -35,7 +35,7 @@ repo = 'aileot/vim-among_HML'
 ## Notice
 
 If you prefer fraction to decimal,
-either numberator or denominator must be a decimal.
+either numerator or denominator must be a decimal.
 
 In Vim/Neovim, a ratio of Integers is an Integer:
 
@@ -46,7 +46,7 @@ In Vim/Neovim, a ratio of Integers is an Integer:
 
 ```vim
 " Assign a ratio (0.0 ~ 1.0) to jump within window.
-:call among_HML#jump(1/8.0) " Jump to 1/8 height in window.
+:call among_HML#jump(1/8.0)  " Jump to 1/8 height in window.
 :call among_HML#scroll(0.25) " Drag cursor line to 1/4 height in window.
 ```
 
@@ -58,15 +58,15 @@ require("among_HML").scroll(0.25)
 ```
 
 vim-among_HML defines no default keymappings;
-so you should define some keymappings, like the examples below,
+you should define some keymappings, like the examples below,
 in your vimrc or init.vim.
 
 ```vim
 set scrolloff=0 " recommended (default)
 
 " Jump into the line at 1/4 or 3/4 height of window (i.e., 25% or 75% height);
-noremap <silent> K <Cmd>call among_HML#jump(0.25)<CR>
-noremap <silent> J <Cmd>call among_HML#jump(0.75)<CR>
+noremap K <Cmd>call among_HML#jump(0.25)<CR>
+noremap J <Cmd>call among_HML#jump(0.75)<CR>
 
 " Optional mappings with mnemonics:
 " Get the Keyword
