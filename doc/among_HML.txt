@@ -138,24 +138,6 @@ You must install kana/vim-submode(https://github.com/kana/vim-submode) to use
 		\ 'K': 0.875,
 		\ })<CR>
 <
-or for less mapped keys, only on H and L for instance,
->
-	noremap H <Cmd>call among_HML#fork#init_jump(
-		\ 'H', 0.25, {
-		\ 'H': 0.0,
-		\ 'K': 0.125,
-		\ 'M': 0.50,
-		\ 'J': 0.375,
-		\ })<CR>
-
-	noremap L <Cmd>call among_HML#fork#init_jump(
-		\ 'L', 0.75, {
-		\ 'K': 0.625,
-		\ 'J': 0.875,
-		\ 'M': 0.50,
-		\ 'L': 1.0,
-		\ })<CR>
-
 Note:
 <Cmd> is only available on neovim v0.3.0 or more, or vim v8.2.1978 or more,
 use
