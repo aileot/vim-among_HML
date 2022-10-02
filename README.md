@@ -4,16 +4,10 @@ vim-among_HML provides a set of motions, extending H/M/L motion.
 
 ## Demo
 
-![among_HML#fork](https://user-images.githubusercontent.com/46470475/71517891-7b5bd000-28f3-11ea-8ee4-3a72a1888541.gif)
+![among_HML#jump](https://user-images.githubusercontent.com/46470475/193440491-5fd405db-1f3e-4ad5-9e78-f31520a8859a.gif)
 
-In demo, type `K` to 1/4 height of lines in window and `J` to 3/4.
-Addition to them, `KK` in sequence will jump 1/4 at first, and then, to 1/8;
-`KJ` to 3/8; `JK` to 5/8; `JJ` to 7/8.
 
-You can copy the keymappings in doc/among_HML.txt;
-type `:help among_HML-example` in commandline of vim.
-[kana/vim-submode](https://github.com/kana/vim-submode)
-is necessary for the use in sequence.
+(In demo, [edluffy/specs.nvim](https://github.com/edluffy/specs.nvim) flashes cursor.)
 
 ## Installation
 
