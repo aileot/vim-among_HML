@@ -35,7 +35,7 @@ repo = 'aileot/vim-among_HML'
 ## Notice
 
 If you prefer fraction to decimal,
-either numberator or denominator must be a decimal.
+either numerator or denominator must be a decimal.
 
 In Vim/Neovim, a ratio of Integers is an Integer:
 
