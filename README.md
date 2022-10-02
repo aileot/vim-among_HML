@@ -58,7 +58,7 @@ require("among_HML").scroll(0.25)
 ```
 
 vim-among_HML defines no default keymappings;
-so you should define some keymappings, like the examples below,
+you should define some keymappings, like the examples below,
 in your vimrc or init.vim.
 
 ```vim
