@@ -65,8 +65,8 @@ in your vimrc or init.vim.
 set scrolloff=0 " recommended (default)
 
 " Jump into the line at 1/4 or 3/4 height of window (i.e., 25% or 75% height);
-noremap <silent> K <Cmd>call among_HML#jump(0.25)<CR>
-noremap <silent> J <Cmd>call among_HML#jump(0.75)<CR>
+noremap K <Cmd>call among_HML#jump(0.25)<CR>
+noremap J <Cmd>call among_HML#jump(0.75)<CR>
 
 " Optional mappings with mnemonics:
 " Get the Keyword
