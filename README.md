@@ -32,17 +32,9 @@ use "aileot/vim-among_HML"
 repo = 'aileot/vim-among_HML'
 ```
 
-## Notice
-
-If you prefer fraction to decimal, either numerator or denominator must be a
-decimal.
-
-In Vim/Neovim, a ratio of Integers is an Integer:
-
-- Either `1/4` or `3/4` results in `0`.
-- `1/4.0` results in `0.25`, `3.0/4` results in `0.75`.
-
 ## Examples
+
+### Vim script
 
 ```vim
 " Assign a ratio (0.0 ~ 1.0) to jump within window.
@@ -50,15 +42,23 @@ In Vim/Neovim, a ratio of Integers is an Integer:
 :call among_HML#scroll(0.25) " Drag cursor line to 1/4 height in window.
 ```
 
-or, in Lua
+If you prefer fraction to decimal, either numerator or denominator must be a
+decimal in Vim script; otherwise, you would get an integer there.
+
+- Either `1/4` or `3/4` results in `0`.
+- `1/4.0` results in `0.25`, `3.0/4` results in `0.75`.
+
+### Lua
 
 ```lua
 require("among_HML").jump(1/8)
 require("among_HML").scroll(0.25)
 ```
 
-vim-among_HML defines no default keymappings; you should define some
-keymappings, like the examples below, in your vimrc or init.vim.
+### Configuration
+
+This plugin defines no default keymappings so that you should map keys by
+yourself in your vimrc.
 
 ```vim
 set scrolloff=0 " recommended (default)
