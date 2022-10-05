@@ -6,8 +6,8 @@ vim-among_HML provides a set of motions, extending H/M/L motion.
 
 ![among_HML#jump](https://user-images.githubusercontent.com/46470475/193440491-5fd405db-1f3e-4ad5-9e78-f31520a8859a.gif)
 
-
-(In demo, [edluffy/specs.nvim](https://github.com/edluffy/specs.nvim) flashes cursor.)
+(In demo, [edluffy/specs.nvim](https://github.com/edluffy/specs.nvim) flashes
+cursor.)
 
 ## Installation
 
@@ -34,8 +34,8 @@ repo = 'aileot/vim-among_HML'
 
 ## Notice
 
-If you prefer fraction to decimal,
-either numerator or denominator must be a decimal.
+If you prefer fraction to decimal, either numerator or denominator must be a
+decimal.
 
 In Vim/Neovim, a ratio of Integers is an Integer:
 
@@ -57,9 +57,8 @@ require("among_HML").jump(1/8)
 require("among_HML").scroll(0.25)
 ```
 
-vim-among_HML defines no default keymappings;
-you should define some keymappings, like the examples below,
-in your vimrc or init.vim.
+vim-among_HML defines no default keymappings; you should define some
+keymappings, like the examples below, in your vimrc or init.vim.
 
 ```vim
 set scrolloff=0 " recommended (default)
